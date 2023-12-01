@@ -80,6 +80,11 @@ plugins=(
   git
   colored-man-pages
   kubectl
+  docker
+  aws
+  argocd
+  colorize
+  gradle
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -141,4 +146,5 @@ for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
   source "${conf}"
 done
 unset conf
+
 
