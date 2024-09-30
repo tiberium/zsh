@@ -80,11 +80,13 @@ plugins=(
   git
   colored-man-pages
   kubectl
-  docker
+  # docker
   aws
   argocd
   colorize
   gradle
+  poetry
+  pyenv
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -141,23 +143,31 @@ alias print-path="python -c 'import sys;print(sys.argv[1].replace(\":\",\"\\n\")
 alias G="./gradlew"
 alias Gcb="./gradlew clean build --refresh-dependencies"
 
+# pyenv configuration
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 # Load seperated config files
 for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
   source "${conf}"
 done
 unset conf
 
-# pyenv configuration
-echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
-echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
-echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+# Set up fzf key bindings
+source <(fzf --zsh)
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
+
+# Configuring XDG_CONFIG_HOME for some applications, e.g. k9s
+export XDG_CONFIG_HOME="$HOME/.config"
+
+source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Enable vi mode
+bindkey -v
+
+# Add GOPATH to PATH
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
