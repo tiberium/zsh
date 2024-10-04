@@ -91,11 +91,11 @@ plugins=(
 )
 
 # Powerlevel10k
-ZSH_THEME="powerlevel10k/powerlevel10k"
+export ZSH_THEME="powerlevel10k/powerlevel10k"
 # Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+[[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
 
 # User configuration
 
@@ -135,9 +135,6 @@ autoload -Uz compinit
 compinit
 source <(kubectl completion zsh)
 
-
-
-
 # Nice PATH print
 alias print-path="python -c 'import sys;print(sys.argv[1].replace(\":\",\"\\n\"))' \"\$PATH\""
 
@@ -151,9 +148,12 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 # Load seperated config files
-for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
-  source "${conf}"
-done
+if [ -d "$HOME/.config/zsh/config.d" ]; then
+  # Load all files in the directory
+  for conf in "$HOME/.config/zsh/config.d/"*.zsh; do
+    source "${conf}"
+  done
+fi
 unset conf
 
 # Set up fzf key bindings
