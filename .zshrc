@@ -90,12 +90,16 @@ plugins=(
   pyenv
 )
 
+### ZSH Configuration ###
 # Powerlevel10k
 export ZSH_THEME="powerlevel10k/powerlevel10k"
 # Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f $HOME/.p10k.zsh ]] || source $HOME/.p10k.zsh
+# Syntax highlighting for zsh
+[[ "$OSTYPE" == "darwin"* ]] && source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ "$OSTYPE" == "linux-gnu"* ]] && source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # User configuration
 
@@ -164,7 +168,6 @@ alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
 # Configuring XDG_CONFIG_HOME for some applications, e.g. k9s
 export XDG_CONFIG_HOME="$HOME/.config"
 
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Enable vi mode
 bindkey -v
