@@ -72,6 +72,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+
+### ZSH Configuration ###
+export ZSH_THEME="spaceship"
 plugins=(
   zsh-autosuggestions
   git
@@ -84,13 +87,13 @@ plugins=(
   gradle
   poetry
   pyenv
+  spaceship_gitemail
 )
-
-### ZSH Configuration ###
-export ZSH_THEME="spaceship"
 
 # Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+spaceship add gitemail
 
 # Syntax highlighting for zsh
 [[ "$OSTYPE" == "darwin"* ]] && source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
