@@ -93,7 +93,10 @@ plugins=(
 # Oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
-spaceship add gitemail
+if [[ -z "$SPACESHIP_GITEMAIL_ADDED" ]]; then
+  spaceship add gitemail
+  SPACESHIP_GITEMAIL_ADDED=true
+fi
 
 # Syntax highlighting for zsh
 [[ "$OSTYPE" == "darwin"* ]] && source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
