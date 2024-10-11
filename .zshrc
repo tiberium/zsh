@@ -184,3 +184,6 @@ fi
 if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
   tmux new-session -A -s home -c "$HOME"
 fi
+
+# Add .local/scripts to PATH, the catalog contains some custom scripts
+export PATH=$PATH:"$HOME/.local/scripts"
