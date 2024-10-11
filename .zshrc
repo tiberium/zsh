@@ -181,9 +181,13 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   export PATH=$PATH:/usr/local/go/bin
 fi
 
+# tmux
 if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
   tmux new-session -A -s home -c "$HOME"
 fi
+
+# tmux-sesionizer
+bindkey -s ^f "tmux-sesionizer\n"
 
 # Add .local/scripts to PATH, the catalog contains some custom scripts
 export PATH=$PATH:"$HOME/.local/scripts"
