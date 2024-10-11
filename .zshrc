@@ -176,6 +176,11 @@ bindkey -v
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
+# If on linux, add go to path (on MacOS should be already there if installed via brew)
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+  export PATH=$PATH:/usr/local/go/bin
+fi
+
 if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
   tmux new-session -A -s home -c "$HOME"
 fi
