@@ -187,7 +187,7 @@ if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
 fi
 
 # tmux-sesionizer
-bindkey -s ^f "tmux-sesionizer\n"
+bindkey -s ^f "tmux-sessionizer\n"
 
 # Add .local/scripts to PATH, the catalog contains some custom scripts
 export PATH=$PATH:"$HOME/.local/scripts"
