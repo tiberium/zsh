@@ -175,3 +175,7 @@ bindkey -v
 # Add GOPATH to PATH
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
+
+if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
+  tmux new-session -A -s home -c "$HOME"
+fi
