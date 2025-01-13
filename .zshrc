@@ -191,3 +191,6 @@ bindkey -s ^f "tmux-sessionizer\n"
 
 # Add .local/scripts to PATH, the catalog contains some custom scripts
 export PATH=$PATH:"$HOME/.local/scripts"
+
+alias e="eza -la"
+alias b="bat"
