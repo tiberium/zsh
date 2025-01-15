@@ -148,9 +148,9 @@ alias G="./gradlew"
 alias Gcb="./gradlew clean build --refresh-dependencies"
 
 # pyenv configuration
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+# export PYENV_ROOT="$HOME/.pyenv"
+# export PATH="$PYENV_ROOT/bin:$PATH"
+# eval "$(pyenv init -)"
 
 # Load seperated config files
 if [ -d "$HOME/.config/zsh/config.d" ]; then
@@ -162,7 +162,7 @@ fi
 unset conf
 
 # Set up fzf key bindings
-source <(fzf --zsh)
+# source <(fzf --zsh)
 
 alias inv='nvim $(fzf -m --preview="bat --color=always {}")'
 
