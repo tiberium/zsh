@@ -148,9 +148,9 @@ alias G="./gradlew"
 alias Gcb="./gradlew clean build --refresh-dependencies"
 
 # pyenv configuration
-# export PYENV_ROOT="$HOME/.pyenv"
-# export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init -)"
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 # Load seperated config files
 if [ -d "$HOME/.config/zsh/config.d" ]; then
@@ -194,3 +194,6 @@ export PATH=$PATH:"$HOME/.local/scripts"
 
 alias e="eza -la"
 alias b="bat"
+
+# Created by `pipx` on 2025-01-17 16:16:18
+export PATH="$PATH:/home/tiberium/.local/bin"
