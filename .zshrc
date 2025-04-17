@@ -188,6 +188,7 @@ fi
 
 # tmux-sesionizer
 bindkey -s ^f "tmux-sessionizer\n"
+bindkey -s ^j "tmux switch-client -l\n"
 
 # Add .local/scripts to PATH, the catalog contains some custom scripts
 export PATH=$PATH:"$HOME/.local/scripts"
