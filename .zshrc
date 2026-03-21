@@ -79,14 +79,10 @@ plugins=(
   zsh-autosuggestions
   git
   colored-man-pages
-  kubectl
   # docker
   aws
   argocd
   colorize
-  gradle
-  poetry
-  pyenv
   spaceship_gitemail
 )
 
@@ -135,22 +131,8 @@ export SAVEHIST=10000000
 setopt SHARE_HISTORY
 setopt HIST_EXPIRE_DUPS_FIRST
 
-# kubectl autocompletition
-autoload -Uz compinit
-compinit
-source <(kubectl completion zsh)
-
 # Nice PATH print
 alias print-path="python -c 'import sys;print(sys.argv[1].replace(\":\",\"\\n\"))' \"\$PATH\""
-
-# Gradle
-alias G="./gradlew"
-alias Gcb="./gradlew clean build --refresh-dependencies"
-
-# pyenv configuration
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
 
 # Load seperated config files
 if [ -d "$HOME/.config/zsh/config.d" ]; then
@@ -188,7 +170,7 @@ fi
 
 # tmux-sesionizer
 bindkey -s ^f "tmux-sessionizer\n"
-bindkey -s ^j "tmux switch-client -l\n"
+# bindkey -s ^j "tmux switch-client -l\n"
 
 # Add .local/scripts to PATH, the catalog contains some custom scripts
 export PATH=$PATH:"$HOME/.local/scripts"
@@ -198,3 +180,4 @@ alias b="bat"
 
 # Created by `pipx` on 2025-01-17 16:16:18
 export PATH="$PATH:/home/tiberium/.local/bin"
+
