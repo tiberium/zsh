@@ -181,3 +181,6 @@ alias b="bat"
 # Created by `pipx` on 2025-01-17 16:16:18
 export PATH="$PATH:/home/tiberium/.local/bin"
 
+# git
+alias gs="git status"
+
